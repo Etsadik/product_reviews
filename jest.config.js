@@ -1,4 +1,5 @@
+
 module.exports = {
-    verbose: true,
-  };
-  
+  verbose: true,
+  setupTestFrameworkScriptFile: './client/src/setupTests.js'
+}
