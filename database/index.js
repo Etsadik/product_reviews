@@ -1,7 +1,9 @@
+
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/nordstromPrac')
+const faker = require('faker')
 
-var reviewSchema = new Schema({
+var reviewSchema = mongoose.Schema({
   title: String,
   username: { type: String, unique: true },
   body: String,
@@ -9,12 +11,15 @@ var reviewSchema = new Schema({
   date: Date
 })
 
+// console.log(reviewSchema)
+
 const handleError = () => {
   // console.log('nothing');
 }
 
 let store = (reviews) => {
-  var parsed = JSON.parse(reviews)
+  // var parsed = JSON.parse(reviews);
+
   let Review = mongoose.model('Review', reviewSchema)
   for (var i = 0; i < parsed.length; i++) {
     var newEntry = new Review({
