@@ -7,10 +7,10 @@ const faker = require('faker')
 // let shortDescription = faker.lorem.sentence()
 let firstName = faker.name.firstName()
 
-console.log(`Employee: ${firstName}`)
+// console.log(`Employee: ${firstName}`)
 // TITLE and DESCRIPTION
 // this is lorem ipsum sentence structure and title can folow the same format
-console.log('this is the sentence', faker.random.words(8))
+// console.log('this is the sentence', faker.random.words(8))
 
 const fakeDay = faker.date.weekday()
 const fakeMonth = faker.date.month()
@@ -23,10 +23,18 @@ const fakeYear = ('the year:', faker.random.number({
   max: 2020
 }))
 
-  // var testDate =  ${fakeDay + '' + fakeDayOfMonth + '' + fakeMonth + '' + fakeYear}`
+var priliminaryTest = `${fakeDay + '' + fakeDayOfMonth + '' + fakeMonth + '' + fakeYear}`
 
 // rating (random number between 1 and 5);
-var fakeRating = faker.random.number({
+const fakeRating = faker.random.number({
   min: 0,
   max: 5
 })
+
+const fakerDataGen = () => {
+  return priliminaryTest
+}
+
+module.exports = {
+  fakerDataGen, fakeRating
+}

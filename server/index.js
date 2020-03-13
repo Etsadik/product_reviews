@@ -1,5 +1,5 @@
 
-// import Controller from './controllers.js'
+const Controller = require('./controllers.js')
 const express = require('express')
 const path = require('path')
 const app = express()
@@ -13,8 +13,8 @@ app.use(express.static(path.join(__dirname, '../client/dist')))
 
 app.get('/test', function (req, res) {
   console.log('hello from server index')
-  res.send('gotGet')
-  // Controller.get(req, res)
+  // res.send('gotGet')
+  Controller.get(req, res)
 })
 
 app.listen(port, () => console.log(`Running on port: ${port}`))
