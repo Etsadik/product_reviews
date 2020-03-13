@@ -1,5 +1,5 @@
 
 module.exports = {
   verbose: true,
-  setupTestFrameworkScriptFile: './client/src/setupTests.js'
+  setupFilesAfterEnv: ['./client/src/setupTests.js']
 }

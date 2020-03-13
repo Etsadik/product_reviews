@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Title from './Title'
-import FakerData from './FakerData'
+// import FakerData from './FakerData'
 
 ReactDOM.render(
   <h1>
