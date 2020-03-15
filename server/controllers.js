@@ -4,7 +4,7 @@ const db = require('../database/index.js')
 
 const get = (req, res) => {
   console.log('made it to the controller')
-  db.store((err, data) => {
+  db.get((err, data) => {
     if (err) {
       console.log('error in the controller')
       res.send(400)
