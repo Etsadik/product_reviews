@@ -9,7 +9,7 @@ const get = (req, res) => {
       console.log('error in the controller')
       res.send(400)
     } else {
-      console.log('presuccess response:')
+      console.log('presuccess response:', data)
       res.send(data)
     }
   })
