@@ -4,7 +4,6 @@ mongoose.connect('mongodb://localhost/nordstromPrac')
 const faker = require('faker')
 
 const reviewData = []
-console.log('review data length', reviewData.length)
 
 const reviewSchema = mongoose.Schema({
   title: String,
@@ -38,7 +37,7 @@ const seed = () => {
     })
     newReview.save((err) => {
       if (err) {
-        console.log('error in SEED DB', err)
+        console.log('error in SEED DB')
       } else {
         console.log('review was stored')
       }

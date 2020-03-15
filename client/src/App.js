@@ -22,6 +22,11 @@ class App extends React.Component {
       error: (err) => { console.log(err) }
     })
   }
+  render (){
+    return(
+      <div> App check </div>
+    )
+  }
 }
 
 export default App

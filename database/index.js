@@ -12,12 +12,11 @@ var reviewSchema = mongoose.Schema({
 })
 
 const handleError = (error) => {
-  console.log('error in db cb: ', error)
+  console.log('error in db cb store: ', error)
 }
 
 const get = (callback) => {
   const Review = mongoose.model('review', reviewSchema)
-  console.log('get in db')
   Review.find((err, results) => { callback(err, results) })
 }
 
@@ -27,7 +26,6 @@ const store = (callback) => {
   })
   newReview.save((err) => {
     if (err) {
-      console.log('error IN INDEX FILE', err)
       return handleError(err)
     } else {
       console.log('success prior to DB store')
