@@ -1,32 +1,38 @@
 import React from 'react'
 import { ajax } from 'jquery'
+import Title from './Title'
+import ReviewList from './Reviews/Components/ReviewList.js'
 
-class App extends React.Component {
+class Reviews extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      test: 0
+      reviews: []
     }
+    this.get = this.get.bind(this)
   }
 
   componentDidMount () {
-    console.log('component mount')
     this.get()
   }
 
   get () {
     ajax({
       method: 'GET',
+      url: '/reviews',
       data: {},
-      success: (data) => { console.log(data) },
-      error: (err) => { console.log(err) }
+      success: (reviews) => { this.setState({ reviews }) },
+      error: () => { console.log('HELLO') }
     })
   }
-  render (){
-    return(
-      <div> App check </div>
+  render () {
+    return (
+      <div> 
+      <Title />
+      <ReviewList reviews={ this.state.reviews } />
+      </div>
     )
   }
 }
 
-export default App
+export default Reviews

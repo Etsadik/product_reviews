@@ -1,8 +1,7 @@
 import React from 'react'
-const Title = ({ children }) => (
+const Title = (props) => (
   <div>
-    <h1>{children}</h1>
-    <div>React rendered</div>
+    <h1>Test Title</h1>
   </div>
 
 )

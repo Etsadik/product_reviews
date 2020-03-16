@@ -1,14 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Title from './Title'
-import App from './App'
-// import FakerData from './FakerData'
+import Reviews from './App.js'
 
 ReactDOM.render(
-  <h1>
-    <Title />
-    <App />
-  </h1>,
+  <div>
+    <Reviews/>
+  </div>,
   document.getElementById('root')
 )

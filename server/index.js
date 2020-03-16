@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '../client/dist')))
 
-app.get('/test', function (req, res) {
+app.get('/reviews', function (req, res) {
   Controller.get(req, res)
 })
 
