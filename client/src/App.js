@@ -2,14 +2,18 @@ import React from 'react'
 import { ajax } from 'jquery'
 import Title from './Title'
 import ReviewList from './Reviews/Components/ReviewList.js'
+import AverageRating from './Reviews/Components/AverageRating.js'
+import SortBy from './Reviews/Components/SortBy.js'
 
 class Reviews extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      reviews: []
+      reviews: [],
+      average: 0
     }
     this.get = this.get.bind(this)
+    this.handleNewReviews = this.handleNewReviews.bind(this)
   }
 
   componentDidMount () {
@@ -21,15 +25,27 @@ class Reviews extends React.Component {
       method: 'GET',
       url: '/reviews',
       data: {},
-      success: (reviews) => { this.setState({ reviews }) },
+      success: (reviews) => { this.handleNewReviews(reviews) },
       error: () => { console.log('HELLO') }
     })
   }
+
+  handleNewReviews (reviews) {
+    let sum = 0
+    reviews.forEach((review) => {
+      sum += review.score
+    })
+    const average = sum / reviews.length
+    this.setState({ average, reviews })
+  }
+
   render () {
     return (
-      <div> 
-      <Title />
-      <ReviewList reviews={ this.state.reviews } />
+      <div>
+        <SortBy />
+        <Title />
+        <AverageRating average={ this.state.average } />
+        <ReviewList reviews={ this.state.reviews } />
       </div>
     )
   }
